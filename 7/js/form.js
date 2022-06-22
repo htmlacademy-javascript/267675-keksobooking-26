@@ -61,7 +61,9 @@ pristine.addValidator(
   'Гостям тесно'
 );
 form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  const isValid = pristine.validate();
+  if (!isValid) {
+    evt.preventDefault();
+  }
 });
 export { pageToNotActive, pageToActive };
